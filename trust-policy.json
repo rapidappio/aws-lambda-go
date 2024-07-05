@@ -1,0 +1,28 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:<region>:<account-id>:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "lambda:InvokeFunction"
+      ],
+      "Resource": [
+        "arn:aws:logs:<region>:<account-id>:log-group:/aws/lambda/PostgresHandler:*",
+        "arn:aws:lambda:<region>:<account-id>:function:PostgresHandler"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "*"
+    }
+  ]
+}
+
